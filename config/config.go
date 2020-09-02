@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func ParseJsonConfigToMap2(pathConfig string) map[string]interface{} {
+func ParseJsonConfigToMap4(pathConfig string) map[string]interface{} {
 	result := make(map[string]interface{})
 	fileConfig, errOpen := os.Open(pathConfig)
 
@@ -14,7 +14,7 @@ func ParseJsonConfigToMap2(pathConfig string) map[string]interface{} {
 		log.Fatal("Cannot open " + pathConfig + ", please check and try again!")
 	}
 	defer fileConfig.Close()
-
+	//test
 	decoder := json.NewDecoder(fileConfig)
 	errParse := decoder.Decode(&result)
 
