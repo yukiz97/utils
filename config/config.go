@@ -6,8 +6,8 @@ import (
 	"os"
 )
 
-func ParseJsonConfigToStruct(pathConfig string) interface{} {
-	var result interface{}
+func ParseJsonConfigToMap(pathConfig string) map[string]interface{} {
+	result := make(map[string]interface{})
 	fileConfig, errOpen := os.Open(pathConfig)
 
 	if errOpen != nil {
@@ -19,7 +19,7 @@ func ParseJsonConfigToStruct(pathConfig string) interface{} {
 	errParse := decoder.Decode(&result)
 
 	if errParse != nil {
-		log.Fatal("Cannot load json config file into input struct, please try again!")
+		log.Fatal("Cannot parsing " + pathConfig + ", please check and try again!")
 	}
 
 	return result
