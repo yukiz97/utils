@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-func ParseJsonConfigToMap4(pathConfig string) map[string]interface{} {
+func ParseJsonConfigToMap(pathConfig string) map[string]interface{} {
 	result := make(map[string]interface{})
 	fileConfig, errOpen := os.Open(pathConfig)
 
